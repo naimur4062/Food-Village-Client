@@ -5,7 +5,6 @@ import "firebase/firestore";
 import firebaseConfig from '../../firebase.config';
 import "./Login.style.css";
 import { useHistory, Link } from "react-router-dom";
-// import firebase from "firebase";
 import Config, { auth } from "../../firebase.config";
 import { Form } from "react-bootstrap";
 import Header from "../../components/Header/Header";
@@ -22,10 +21,6 @@ function Login() {
   const dispatch = useDispatch();
 
   const history = useHistory();
-
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
 
   useEffect(() => {
     dispatch(
@@ -54,7 +49,7 @@ function Login() {
     }
   }, [user]);
 
-  if (!firebase.apps.length) {
+  if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
 }
   const loginWithGoogle = async () => {
