@@ -1,1 +1,1 @@
-This is Food Village App
+This is Food Village Client side code.
